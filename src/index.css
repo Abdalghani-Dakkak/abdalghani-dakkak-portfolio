@@ -1,0 +1,1005 @@
+/* Global Style */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(./assets/images/stars.jpg);
+  overflow: hidden;
+
+  /* for firefox scroll */
+  scrollbar-width: thin;
+  scrollbar-color: #fdfef9;
+  scrollbar-gutter: stable;
+  /* for firefox scroll */
+}
+
+/* for scroll */
+::-webkit-scrollbar {
+  width: 2px;
+  max-height: 50%;
+  height: 50%;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50%;
+  background-color: #fdfef9;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+/* for scroll */
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  padding: 0 5%;
+}
+
+/* Start Animation Page */
+/* Start Planets Section */
+header {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.planets {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 560px;
+  height: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(50%, -50%);
+  transition: 2s;
+}
+
+/* Start Sun */
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(to bottom, #ffff00, #ffb700);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 150px 20px #ff7300;
+}
+
+.sun .sun-in {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ff7300;
+  border-radius: 50%;
+  clip-path: path(
+    "M 0 80 C 12,20 15,20 15,40 C 17,110 50,120 50,80 S 100,40 150,100 L 200,200 0,200 Z"
+  );
+}
+.sun .sun-in2 {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 10%;
+  height: 10%;
+  background-color: #ff7300;
+  border-radius: 50%;
+}
+/* End Sun */
+
+/* Start Orbits */
+.orbits {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.orbits .orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  animation: rotate linear infinite;
+}
+
+.orbits .orbit:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  animation-duration: 3.5s;
+}
+.orbits .orbit:nth-child(2) {
+  width: 320px;
+  height: 320px;
+  animation-duration: 4s;
+}
+.orbits .orbit:nth-child(3) {
+  width: 440px;
+  height: 440px;
+  animation-duration: 4.5s;
+}
+.orbits .orbit:nth-child(4) {
+  width: 560px;
+  height: 560px;
+  animation-duration: 4.8s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(100deg);
+  }
+
+  51% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* End Orbits */
+
+/* Start Planets */
+/* Start Mercury */
+.orbit .planet {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  overflow: hidden;
+}
+
+.mercury {
+  width: 40px;
+  height: 40px;
+  background-color: #838182;
+}
+
+.mercury .mercury-in1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #4f4e4f;
+  border-radius: 50%;
+  clip-path: path("M 0 20 C 17,10 50,120 50,80 S 100,40 80,80 L 50,0 Z");
+}
+.mercury .mercury-in2 {
+  position: absolute;
+  top: 25%;
+  right: 35%;
+  width: 35%;
+  height: 20%;
+  background-color: #838182;
+  border-radius: 50%;
+}
+.mercury .mercury-in3 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #838182;
+  border-radius: 50%;
+}
+.mercury .mercury-in4 {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #4f4e4f;
+  border-radius: 30%;
+}
+/* End Mercury */
+
+/* Start Venus */
+.venus {
+  width: 60px;
+  height: 60px;
+  background-color: #a84810;
+}
+
+.venus .venus-in1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #5d2008;
+  border-radius: 50%;
+  clip-path: path("M 0 20 C 17,10 50,120 50,80 S 100,40 80,80 L 80,0 Z");
+}
+.venus .venus-in2 {
+  position: absolute;
+  top: 7%;
+  right: 20%;
+  width: 35%;
+  height: 20%;
+  background-color: #a84810;
+  border-radius: 50%;
+}
+.venus .venus-in3 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #a84810;
+  border-radius: 50%;
+}
+.venus .venus-in4 {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 40%;
+  height: 40%;
+  background-color: #5d2008;
+  border-radius: 30% 30% 30% 50%;
+}
+.venus .venus-in5 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 25%;
+  height: 35%;
+  background-color: #1c100a;
+  border-radius: 30% 50% 30% 50%;
+  transform: rotate(45deg);
+}
+/* End Venus */
+
+/* Start Earth */
+.earth {
+  width: 60px;
+  height: 60px;
+  background-color: #141682;
+}
+
+.earth .earth-in1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #085d0b;
+  border-radius: 50%;
+  clip-path: polygon(
+    0 10%,
+    15% 15%,
+    17% 13%,
+    20% 20%,
+    23% 21%,
+    30% 40%,
+    35% 42%,
+    32% 45%,
+    35% 55%,
+    48% 70%,
+    48% 55%,
+    60% 45%,
+    70% 45%,
+    75% 42%,
+    80% 30%,
+    85% 35%,
+    100% 0,
+    0 0
+  );
+}
+.earth .earth-in2 {
+  position: absolute;
+  right: 10%;
+  bottom: 15%;
+  width: 30%;
+  height: 20%;
+  background-color: #085d0b;
+  border-radius: 10%;
+  clip-path: polygon(
+    10% 15%,
+    0 65%,
+    50% 100%,
+    60% 80%,
+    87% 55%,
+    90% 20%,
+    100% 20%,
+    95% 0%
+  );
+  transform: rotate(-25deg);
+}
+/* End Earth */
+
+/* Start Mars */
+.mars {
+  width: 50px;
+  height: 50px;
+  background-color: #be8775;
+}
+
+.mars .mars-in1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #a06f64;
+  border-radius: 50%;
+  clip-path: path("M 0 20 C 17,10 50,120 50,80 S 100,40 80,80 L 50,0 Z");
+  transform: rotate(45deg);
+}
+.mars .mars-in2 {
+  position: absolute;
+  top: 25%;
+  right: 35%;
+  width: 35%;
+  height: 20%;
+  background-color: #be8775;
+  border-radius: 50%;
+}
+.mars .mars-in3 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #be8775;
+  border-radius: 50%;
+}
+.mars .mars-in4 {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #a06f64;
+  border-radius: 30%;
+}
+/* End Mars */
+/* End Planets */
+/* End Planets Section */
+
+/* ###################################################################################################################### */
+/* ###################################################################################################################### */
+/* ###################################################################################################################### */
+
+/* Start Identification */
+.identification {
+  width: 790px;
+  height: 100vh;
+  color: #fff;
+}
+
+.identification p {
+  max-width: 400px;
+  position: absolute;
+  top: 300px;
+  left: 100px;
+  color: #1ce2d8;
+  text-align: center;
+  font: 900 35px cursive;
+  user-select: none;
+}
+/* End Identification */
+
+/* ###################################################################################################################### */
+/* ###################################################################################################################### */
+/* ###################################################################################################################### */
+
+/* Start Identification (Mobile Version) */
+.identification-mobile {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 200px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50%);
+  clip-path: polygon(0 0, 65% 15%, 100% 0, 100% 100%, 35% 85%, 0 100%);
+  transition: 0.5s;
+}
+
+.identification-mobile p {
+  color: #fff;
+  text-align: center;
+  user-select: none;
+}
+/* End Identification (Mobile Version) */
+
+/* ###################################################################################################################### */
+/* ###################################################################################################################### */
+/* ###################################################################################################################### */
+
+/* Start Black Hole */
+.blackhole {
+  position: absolute;
+  right: 15%;
+  bottom: 25%;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 80px 30px #ca4b0b, 0 0 150px -100px #ca4b0b,
+    0 0 120px -100px #e7e738;
+  animation: blackholeEffect 1.5s ease-in-out infinite alternate;
+  transition: 2s;
+  z-index: 2;
+}
+
+.blackhole::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #ca4b0b 60%, #e7e738);
+  border: 5px solid #e7e738;
+  border-radius: 50%;
+}
+.blackhole::after {
+  content: "";
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+@keyframes blackholeEffect {
+  from {
+    box-shadow: 0 0 80px 30px #ca4b0b, 0 0 150px -100px #ca4b0b,
+      0 0 120px -100px #e7e738;
+  }
+  to {
+    box-shadow: 0 0 80px 20px #ca4b0b, 0 0 150px -120px #ca4b0b,
+      0 0 120px -120px #e7e738;
+  }
+}
+
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  top: calc(95% - 10px);
+  width: 100px;
+  color: #fff;
+  font: 500 18px none;
+  transform: translateX(-50%);
+  transition: 2s;
+  z-index: 1;
+}
+
+.angle {
+  animation: angle 1s linear infinite;
+}
+
+@keyframes angle {
+  from {
+    transform: translateY(-30%);
+  }
+  to {
+    transform: translateY(35%);
+  }
+}
+
+@media (max-width: 1250px) {
+  .identification {
+    transform: translateX(-250px);
+  }
+
+  .identification p {
+    max-width: 250px;
+    top: 200px;
+    left: 280px;
+  }
+}
+
+@media (max-width: 991px) {
+  .blackhole {
+    right: 5%;
+    bottom: 5%;
+  }
+}
+
+@media (max-width: 767px) {
+  .planets {
+    right: 50%;
+    transform: translate(50%, -25%) scale(0.5);
+  }
+
+  .orbits .orbit {
+    animation: rotate2 linear infinite;
+  }
+
+  @keyframes rotate2 {
+    from {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .identification {
+    display: none;
+  }
+
+  .identification-mobile {
+    display: flex;
+  }
+
+  .blackhole {
+    right: 50%;
+    bottom: 5%;
+    transform: translate(50%, 0) scale(0.7);
+  }
+}
+/* End Black Hole */
+/* End Animation Page */
+
+/* Start Portfolio Section */
+.portfolio-section {
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+
+@keyframes moveToTop {
+  0% {
+    transform: translateY(0vh);
+  }
+  20% {
+    transform: translateY(-100vh);
+  }
+  40% {
+    transform: translateY(-80vh);
+  }
+  42% {
+    transform: translateY(-80vh);
+  }
+  60% {
+    transform: translateY(-100vh);
+  }
+  80% {
+    transform: translateY(-90vh);
+  }
+  82% {
+    transform: translateY(-90vh);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+/* Start Me Section */
+.portfolio-section .me-parent {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  clip-path: polygon(0 0, 65% 23%, 100% 0, 100% 100%, 35% 77%, 0 100%);
+  padding: 130px 5%;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.portfolio-section .me-parent .my-image {
+  position: relative;
+  min-width: 200px;
+  min-height: 200px;
+  width: 15vw;
+  height: 15vw;
+  background: linear-gradient(160deg, #3338d8, #e406d6);
+  background: linear-gradient(160deg, #3338d8 40%, #1ce2d8);
+}
+
+.portfolio-section .me-parent .my-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  transform: translate(-15%, 15%);
+}
+
+.portfolio-section .me-parent .my-image img {
+  width: 160%;
+  transform: translate(calc(-100% / 16 * 3), calc(-100% / 16 * 6));
+}
+
+.portfolio-section .me-parent > p {
+  max-width: 70%;
+  color: #fff;
+  font-size: 26px;
+}
+
+.portfolio-section .me-parent ul li {
+  margin: 10px 0;
+}
+
+.portfolio-section .me-parent ul li a {
+  color: #fff;
+  font-size: 35px;
+  transition: 0.3s;
+}
+
+.portfolio-section .me-parent ul li .linkedin:hover,
+.portfolio-section .me-parent ul li .facebook:hover,
+.portfolio-section footer .media ul li .linkedin:hover,
+.portfolio-section footer .media ul li .facebook:hover {
+  color: #004182;
+}
+.portfolio-section .me-parent ul li .instagram:hover,
+.portfolio-section footer .media ul li .instagram:hover {
+  color: #e1306c;
+}
+.portfolio-section .me-parent ul li .behance:hover,
+.portfolio-section footer .media ul li .behance:hover {
+  color: #1769ff;
+}
+.portfolio-section .me-parent ul li .github:hover,
+.portfolio-section footer .media ul li .github:hover {
+  color: #333;
+}
+
+@media (max-width: 991px) {
+  .portfolio-section .me-parent > p {
+    max-width: 80%;
+    margin: 40px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio-section .me-parent {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    min-height: 100vh;
+    clip-path: none;
+    background: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 50px 5% 0;
+  }
+
+  .portfolio-section .me-parent .my-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .portfolio-section .me-parent > p {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .portfolio-section .me-parent ul {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* @media (max-width: 450px) {
+  .portfolio-section .me-parent ul {
+    width: 100%;
+  }
+} */
+/* End Me Section */
+
+.section-name {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  margin: 50px 0;
+}
+
+/* Start Works Section */
+.my-works .works-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 5% 0;
+}
+
+.card {
+  position: relative;
+  flex-basis: 47.5%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: calc(10vw / 3);
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  transition: 0.3s;
+}
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.09),
+    transparent 40%
+  );
+}
+
+.my-works .works-cards:hover .card::before {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .card {
+    flex-basis: 100%;
+  }
+}
+
+.card .work-name {
+  color: #fff;
+  text-align: center;
+  font-size: 35px;
+}
+
+.card .work-img,
+.card .work-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card .work-img {
+  margin: 20px 0;
+}
+
+.card .work-desc,
+.card .work-tools {
+  color: #fff;
+  text-align: start;
+  font-size: 20px;
+  margin: 10px 0;
+  margin-inline-start: 10px;
+}
+
+.card .work-desc span,
+.card .work-tools span {
+  font: 900 25px none;
+}
+
+.card .work-link {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  background: linear-gradient(160deg, #3338d8, #e406d6);
+  border-radius: 25px;
+  padding: 10px 25px;
+  margin-top: 10px;
+}
+.card .work-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #3338d8 40%, #1ce2d8);
+  border-radius: 25px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card .work-link:hover::before {
+  opacity: 1;
+}
+
+.card .work-link span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.card .work-link span svg {
+  margin-inline-start: 5px;
+  animation: openLink 1s linear infinite;
+}
+
+@keyframes openLink {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(5px);
+  }
+}
+/* End Works Section */
+
+/* Start Skills Section */
+.skills ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 5% 0;
+}
+
+.skills .skill {
+  flex-basis: 47.5%;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  border-radius: 20px;
+  color: #fff;
+  font: 700 20px none;
+  padding: 20px;
+  margin-bottom: calc(10vw / 4);
+}
+
+.skills .skill h3 {
+  flex-basis: 150px;
+  margin: 0 10px;
+}
+
+.skills .skill h3 svg {
+  margin-inline-end: 5px;
+}
+
+.skills .skill .skill-progress {
+  flex-grow: 1;
+  position: relative;
+  margin-inline-start: auto;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.skills .skill .skill-progress::before {
+  content: attr(data-value) "%";
+  position: absolute;
+  width: calc(var(--i) * 1%);
+  height: 100%;
+  background: linear-gradient(160deg, #3338d8 40%, #1ce2d8);
+  border-radius: 10px;
+  text-align: center;
+  font: 400 18px none;
+}
+
+@media (max-width: 767px) {
+  .skills .skill {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .skills .skill {
+    flex-wrap: wrap;
+  }
+  .skills .skill .skill-progress {
+    flex-basis: 100%;
+    margin-top: 10px;
+  }
+}
+/* End Skills Section */
+
+/* Start Footer */
+.portfolio-section footer {
+  border-top: 1px solid #fff;
+  padding: 20px 0;
+  margin: 50px 5% 0;
+}
+
+.portfolio-section footer .media {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-section footer .media a {
+  color: #fff;
+  font-size: 25px;
+  transition: 0.3s;
+}
+
+.portfolio-section footer .media .contact-and-cv a {
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-inline-end: 20px;
+  margin-bottom: 10px;
+}
+
+.portfolio-section footer .media .contact-and-cv a svg {
+  margin-inline-start: 8px;
+}
+
+.portfolio-section footer .media ul {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-section footer .media ul li {
+  margin: 0 10px;
+}
+
+.portfolio-section footer .copyright {
+  text-align: center;
+  color: #fff;
+  margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .portfolio-section footer .media {
+    flex-direction: column;
+  }
+
+  .portfolio-section footer .media .contact-and-cv {
+    display: flex;
+    flex-direction: column;
+  }
+  .portfolio-section footer .media .contact-and-cv a {
+    margin: 10px 0;
+  }
+
+  .portfolio-section footer .media ul {
+    margin-top: 20px;
+  }
+}
+/* End Footer */
+/* End Portfolio Section */

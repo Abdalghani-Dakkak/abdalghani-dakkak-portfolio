@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import Card from "../Components/Card";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDown,
@@ -5,18 +9,14 @@ import {
   faFile,
 } from "@fortawesome/free-solid-svg-icons";
 import {
-  faBootstrap,
-  faCss3,
-  faHtml5,
-  faJs,
-  faLinkedin,
-  faReact,
-  faSquareFacebook,
-  faSquareGithub,
-  faSquareInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import { useEffect } from "react";
-import Card from "../Components/Card";
+  FaFacebookSquare,
+  FaGithubSquare,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
+import { works } from "../Constants/works";
+import { skills } from "../Constants/skills";
+import { experience } from "../Constants/experience";
 
 export default function Home() {
   // Vars
@@ -587,6 +587,10 @@ export default function Home() {
     };
   }, []);
 
+  // const [ref, inView] = useInView({
+  //   rootMargin: "-50% 0px", // Trigger when the element's bottom enters the viewport
+  // });
+
   // Return
   return (
     <>
@@ -596,8 +600,8 @@ export default function Home() {
         <div className="planets">
           {/* Start Sun */}
           <div className="sun">
-            <span className="sun-in"></span>
-            <span className="sun-in2"></span>
+            <span className="sun-in" />
+            <span className="sun-in2" />
           </div>
           {/* End Sun */}
 
@@ -605,33 +609,33 @@ export default function Home() {
           <div className="orbits">
             <div id="or1" className="orbit">
               <div className="planet mercury">
-                <span className="mercury-in1"></span>
-                <span className="mercury-in2"></span>
-                <span className="mercury-in3"></span>
-                <span className="mercury-in4"></span>
+                <span className="mercury-in1" />
+                <span className="mercury-in2" />
+                <span className="mercury-in3" />
+                <span className="mercury-in4" />
               </div>
             </div>
             <div id="or2" className="orbit">
               <div className="planet venus">
-                <span className="venus-in1"></span>
-                <span className="venus-in2"></span>
-                <span className="venus-in3"></span>
-                <span className="venus-in4"></span>
-                <span className="venus-in5"></span>
+                <span className="venus-in1" />
+                <span className="venus-in2" />
+                <span className="venus-in3" />
+                <span className="venus-in4" />
+                <span className="venus-in5" />
               </div>
             </div>
             <div id="or3" className="orbit">
               <div className="planet earth">
-                <span className="earth-in1"></span>
-                <span className="earth-in2"></span>
+                <span className="earth-in1" />
+                <span className="earth-in2" />
               </div>
             </div>
             <div id="or4" className="orbit">
               <div className="planet mars">
-                <span className="mars-in1"></span>
-                <span className="mars-in2"></span>
-                <span className="mars-in3"></span>
-                <span className="mars-in4"></span>
+                <span className="mars-in1" />
+                <span className="mars-in2" />
+                <span className="mars-in3" />
+                <span className="mars-in4" />
               </div>
             </div>
           </div>
@@ -653,10 +657,7 @@ export default function Home() {
         {/* End Identification (Mobile Version) */}
 
         {/* Start Black Hole */}
-        <div className="blackhole">
-          {/* <span className="hole1"></span>
-          <span className="hole2"></span> */}
-        </div>
+        <div className="blackhole" />
         {/* End Black Hole */}
 
         {/* Start Scroll Down Button */}
@@ -669,11 +670,18 @@ export default function Home() {
         {/* End Scroll Down Button */}
       </header>
       {/* End Header */}
-
       {/* Start Portfolio Section */}
       <main className="portfolio-section">
         {/* Start Me Section */}
-        <section className="me-parent">
+        <motion.section
+          className="me-parent"
+          transition={{ duration: 0.5 }}
+          initial={{
+            x: -100,
+            opacity: 0,
+          }}
+          whileInView={{ x: 0, opacity: 1 }}
+        >
           <div className="my-image">
             <img src={require("../assets/images/me.png")} alt="" />
           </div>
@@ -692,9 +700,10 @@ export default function Home() {
                 className="facebook"
                 rel="noreferrer"
               >
-                <FontAwesomeIcon icon={faSquareFacebook} />
+                <FaFacebookSquare />
               </a>
             </li>
+
             <li>
               <a
                 href="https://www.instagram.com/abdalghanidakkak/"
@@ -702,9 +711,10 @@ export default function Home() {
                 className="instagram"
                 rel="noreferrer"
               >
-                <FontAwesomeIcon icon={faSquareInstagram} />
+                <FaInstagram />
               </a>
             </li>
+
             <li>
               <a
                 href="https://www.linkedin.com/in/abdalghani-dakkak-77705324a/"
@@ -712,9 +722,10 @@ export default function Home() {
                 className="linkedin"
                 rel="noreferrer"
               >
-                <FontAwesomeIcon icon={faLinkedin} />
+                <FaLinkedin />
               </a>
             </li>
+
             <li>
               <a
                 href="https://github.com/Abdalghani-Dakkak?tab=repositories"
@@ -722,177 +733,172 @@ export default function Home() {
                 className="github"
                 rel="noreferrer"
               >
-                <FontAwesomeIcon icon={faSquareGithub} />
+                <FaGithubSquare />
               </a>
             </li>
           </ul>
-        </section>
+        </motion.section>
         {/* End Me Section */}
 
         {/* Start Works Section */}
         <section className="my-works">
           <h1 className="section-name">My Works</h1>
           <div className="works-cards">
-            {/* <Card
-              workName="Game store"
-              img={require("../assets/images/Game-store.png")}
-              desc="Game store website"
-              tools="HTML + CSS + JS"
-              link="https://abdalghani-dakkak.github.io/Game-Store/"
-            /> */}
-            <Card
-              workName="Dashboard"
-              img={require("../assets/images/dashbord.png")}
-              desc="Dashboard for a website"
-              tools="HTML + CSS + JS"
-              link="https://abdalghani-dakkak.github.io/Dashboard/"
-            />
-            {/* <Card
-              workName="Talal portfolio"
-              img={require("../assets/images/talal-portofolio.png")}
-              desc="Motion graphics Portfolio"
-              tools="HTML + CSS + JS"
-              link="https://abdalghani-dakkak.github.io/Motion-Graphics-Portfolio-1/"
-            />
-            <Card
-              workName="Talal portfolio"
-              img={require("../assets/images/talal-portfolio-2.png")}
-              desc="Motion graphics Portfolio"
-              tools="HTML + CSS + JS"
-              link="https://abdalghani-dakkak.github.io/Motion-Graphics-Portfolio-2/"
-            /> */}
-            <Card
-              workName="Axit"
-              img={require("../assets/images/axit.png")}
-              desc="Landing page"
-              tools="HTML + CSS + JS"
-              link="https://abdalghani-dakkak.github.io/Axit/"
-            />
-            <Card
-              workName="Digitf"
-              img={require("../assets/images/digitf.png")}
-              desc="Landing page"
-              tools="HTML + CSS + JS + Bootstrap"
-              link="https://abdalghani-dakkak.github.io/Digitf/"
-            />
-            <Card
-              workName="Giga chat"
-              img={require("../assets/images/giga-chat.png")}
-              desc="Chating website"
-              tools="HTML + CSS + JS + Bootstrap + React + Redux"
-              link="https://giga-chat.surge.sh/"
-            />
-            {/* <Card
-              workName="Whatsapp"
-              img={require("../assets/images/whatsapp.png")}
-              width={"35%"}
-              desc="Chating website (Mobile Version)"
-              tools="HTML + CSS + JS"
-              link="https://abdalghani-dakkak.github.io/Whatsapp/"
-            /> */}
+            {works.map((work, index) => (
+              <Card
+                key={`card-${index}`}
+                workName={work.workName}
+                img={work.img}
+                desc={work.desc}
+                tools={work.tools}
+                link={work.link}
+                rtl={work.rtl}
+              />
+            ))}
+            {/* <div>
+              <Card
+                workName="Game store"
+                img={require("../assets/images/Game-store.png")}
+                desc="Game store website"
+                tools="HTML + CSS + JS"
+                link="https://abdalghani-dakkak.github.io/Game-Store/"
+              />
+              <Card
+                workName="Talal portfolio"
+                img={require("../assets/images/talal-portofolio.png")}
+                desc="Motion graphics Portfolio"
+                tools="HTML + CSS + JS"
+                link="https://abdalghani-dakkak.github.io/Motion-Graphics-Portfolio-1/"
+              />
+              <Card
+                workName="Talal portfolio"
+                img={require("../assets/images/talal-portfolio-2.png")}
+                desc="Motion graphics Portfolio"
+                tools="HTML + CSS + JS"
+                link="https://abdalghani-dakkak.github.io/Motion-Graphics-Portfolio-2/"
+              />
+              <Card
+                workName="Whatsapp"
+                img={require("../assets/images/whatsapp.png")}
+                width={"35%"}
+                desc="Chating website (Mobile Version)"
+                tools="HTML + CSS + JS"
+                link="https://abdalghani-dakkak.github.io/Whatsapp/"
+              />
+            </div> */}
           </div>
         </section>
         {/* End Works Section */}
+
+        {/* Start Experience Section */}
+        <section className="my-experience">
+          <h2 className="section-name">Work Experience</h2>
+          {experience.map((exp, index) => (
+            <div
+              key={`experience-${index}`}
+              style={{ display: "flex", gap: "10px" }}
+            >
+              <motion.div
+                className="exp-border"
+                transition={{ duration: 0.5 }}
+                initial={{
+                  height: 0,
+                }}
+                whileInView={{ height: "auto" }}
+                // whileInView={
+                //   inView
+                //     ? { height: "auto" }
+                //     : {
+                //         height: 0,
+                //       }
+                // }
+                // ref={ref}
+              />
+
+              <motion.div
+                className="exp-container"
+                transition={{ duration: 0.5 }}
+                initial={{
+                  x: -30,
+                  opacity: 0,
+                }}
+                whileInView={{ x: 0, opacity: 1 }}
+              >
+                <div className="work-details">
+                  <h3 className="job-title">{exp.jobTitle}</h3>
+                  <p>{exp.companyName}</p>
+                  <span>{exp.workDate}</span>
+                </div>
+
+                {exp.projects && (
+                  <div className="exp-projects-container">
+                    <h4 className="projects-word">Projects:</h4>
+                    <ul className="exp-projects-ul">
+                      {exp.projects.map((project, index) => (
+                        <li key={`project-${index}`}>{project}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <ul className="exp-points">
+                  {exp.points.map((point, index) => (
+                    <li key={`point-${index}`}>{point}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          ))}
+        </section>
+        {/* End Experience Section */}
 
         {/* Start Skills Section */}
         <section className="skills">
           <h2 className="section-name">Skills</h2>
           <ul>
-            <li className="skill">
-              <h3>
-                <FontAwesomeIcon icon={faHtml5} />
-                HTML5
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 70 }}
-                data-value="70"
-              ></div>
-            </li>
-            <li className="skill">
-              <h3>
-                <FontAwesomeIcon icon={faCss3} />
-                CSS3
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 80 }}
-                data-value="80"
-              ></div>
-            </li>
-            <li className="skill">
-              <h3>
-                <FontAwesomeIcon icon={faJs} />
-                JS + ES6
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 75 }}
-                data-value="75"
-              ></div>
-            </li>
-            <li className="skill">
-              <h3>
-                <FontAwesomeIcon icon={faBootstrap} />
-                Bootstrap
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 100 }}
-                data-value="100"
-              ></div>
-            </li>
-            {/* <li className="skill">
-              <h3>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-                  <path
-                    d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0"
-                  />
-                </svg>
-                Tailwind
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 100 }}
-                data-value="100"
-              ></div>
-            </li> */}
-            <li className="skill">
-              <h3>
-                <FontAwesomeIcon icon={faReact} />
-                React
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 75 }}
-                data-value="75"
-              ></div>
-            </li>
-            <li className="skill">
-              <h3>
-                <FontAwesomeIcon icon={faReact} />
-                Redux
-              </h3>
-              <div
-                className="skill-progress"
-                style={{ "--i": 90 }}
-                data-value="90"
-              ></div>
-            </li>
+            {skills.map((skill, index) => (
+              <motion.li
+                key={`skill-${index}`}
+                className="skill"
+                transition={{ duration: 0.3 }}
+                initial={{
+                  x: index % 2 ? 100 : -100,
+                  opacity: 0,
+                }}
+                whileInView={{ x: 0, opacity: 1 }}
+              >
+                <h3>
+                  {skill.icon}
+                  {skill.title}
+                </h3>
+                <div
+                  className="skill-progress"
+                  style={{ "--i": skill.progress }}
+                  data-value={`${skill.progress}`}
+                />
+              </motion.li>
+            ))}
           </ul>
-          <div className="problem-solving"></div>
+          {/* <div className="problem-solving" /> */}
         </section>
         {/* End Skills Section */}
 
         {/* Start Footer */}
         <footer>
           <div className="media">
-            <div className="contact-and-cv">
+            <motion.div
+              className="contact-and-cv"
+              transition={{ duration: 0.5 }}
+              initial={{
+                x: -100,
+                opacity: 0,
+              }}
+              whileInView={{ x: 0, opacity: 1 }}
+            >
               <a href="mailto:abdalghanidakkak@gmail.com" className="contact">
                 Contact
                 <FontAwesomeIcon icon={faEnvelope} bounce />
               </a>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
                 href="./files/Abdalghani_CV.pdf"
                 className="download-cv"
@@ -901,8 +907,16 @@ export default function Home() {
                 Download CV
                 <FontAwesomeIcon icon={faFile} bounce />
               </a>
-            </div>
-            <ul>
+            </motion.div>
+
+            <motion.ul
+              transition={{ duration: 0.5 }}
+              initial={{
+                x: 100,
+                opacity: 0,
+              }}
+              whileInView={{ x: 0, opacity: 1 }}
+            >
               <li>
                 <a
                   href="https://www.facebook.com/abdalghani.dakkak"
@@ -910,9 +924,10 @@ export default function Home() {
                   className="facebook"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon icon={faSquareFacebook} />
+                  <FaFacebookSquare />
                 </a>
               </li>
+
               <li>
                 <a
                   href="https://www.instagram.com/abdalghanidakkak/"
@@ -920,9 +935,10 @@ export default function Home() {
                   className="instagram"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon icon={faSquareInstagram} />
+                  <FaInstagram />
                 </a>
               </li>
+
               <li>
                 <a
                   href="https://www.linkedin.com/in/abdalghani-dakkak/"
@@ -930,9 +946,10 @@ export default function Home() {
                   className="linkedin"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon icon={faLinkedin} />
+                  <FaLinkedin />
                 </a>
               </li>
+
               <li>
                 <a
                   href="https://github.com/Abdalghani-Dakkak?tab=repositories"
@@ -940,10 +957,10 @@ export default function Home() {
                   className="github"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon icon={faSquareGithub} />
+                  <FaGithubSquare />
                 </a>
               </li>
-            </ul>
+            </motion.ul>
           </div>
 
           <p className="copyright">

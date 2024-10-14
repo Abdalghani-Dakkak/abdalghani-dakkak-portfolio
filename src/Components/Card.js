@@ -1,12 +1,21 @@
+import { motion } from "framer-motion";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Card(props) {
   return (
-    <div className="card">
+    <motion.div
+      className="card"
+      transition={{ duration: 0.5 }}
+      initial={{
+        x: props.rtl ? 100 : -100,
+        opacity: 0,
+      }}
+      whileInView={{ x: 0, opacity: 1 }}
+    >
       <h2 className="work-name">{props.workName}</h2>
       <div className="work-img">
-        <img style={{width: props.width}} src={props.img} alt="" />
+        <img style={{ width: props.width }} src={props.img} alt="" />
       </div>
       <p className="work-desc">
         <span>Descripton:</span> {props.desc}
@@ -25,6 +34,6 @@ export default function Card(props) {
           <FontAwesomeIcon icon={faAnglesRight} />
         </span>
       </a>
-    </div>
+    </motion.div>
   );
 }

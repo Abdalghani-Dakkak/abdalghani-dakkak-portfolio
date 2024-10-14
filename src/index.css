@@ -857,12 +857,102 @@ header {
 @keyframes openLink {
   from {
     transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
   }
   to {
     transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
   }
 }
 /* End Works Section */
+
+/* Start Experience Section */
+.my-experience {
+  margin: 0 5%;
+  counter-reset: exp;
+}
+
+.exp-border {
+  position: relative;
+  width: 4px;
+  background-color: #fff;
+}
+.exp-border::before {
+  counter-increment: exp;
+  content: counter(exp);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.exp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 40px;
+  color: #fff;
+}
+
+.exp-container .work-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exp-container .work-details .job-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.exp-container .exp-projects-container {
+  display: flex;
+  gap: 10px;
+}
+
+.exp-container .exp-projects-container .projects-word {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.exp-container .exp-projects-container .exp-projects-ul {
+  display: flex;
+  gap: 10px;
+}
+
+.exp-container .exp-points {
+  list-style: disc;
+  margin-inline-start: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* End Experience Section */
 
 /* Start Skills Section */
 .skills ul {
@@ -889,6 +979,8 @@ header {
 }
 
 .skills .skill h3 {
+  display: flex;
+  align-items: center;
   flex-basis: 150px;
   margin: 0 10px;
 }

@@ -1,0 +1,70 @@
+.loader-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  z-index: 999;
+}
+
+.loader-container .planets {
+  position: relative;
+  right: auto;
+  width: calc(560px / 3);
+  height: calc(560px / 3);
+  transform: none;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+}
+
+.loader-container .planets .sun {
+  width: calc(120px / 4);
+  height: calc(120px / 4);
+}
+
+.loader-container .planets .orbits .orbit {
+  animation: rotate2 linear infinite;
+  -webkit-animation: rotate2 linear infinite;
+}
+
+.loader-container .planets .orbits .orbit:nth-child(1) {
+  width: calc(200px / 3);
+  height: calc(200px / 3);
+  animation-duration: 3.5s;
+}
+.loader-container .planets .orbits .orbit:nth-child(2) {
+  width: calc(320px / 3);
+  height: calc(320px / 3);
+  animation-duration: 4s;
+}
+.loader-container .planets .orbits .orbit:nth-child(3) {
+  width: calc(440px / 3);
+  height: calc(440px / 3);
+  animation-duration: 4.5s;
+}
+.loader-container .planets .orbits .orbit:nth-child(4) {
+  width: calc(560px / 3);
+  height: calc(560px / 3);
+  animation-duration: 4.8s;
+}
+
+.loader-container .planets .orbits .orbit .mercury {
+  width: calc(40px / 3);
+  height: calc(40px / 3);
+}
+.loader-container .planets .orbits .orbit .venus {
+  width: calc(60px / 3);
+  height: calc(60px / 3);
+}
+.loader-container .planets .orbits .orbit .earth {
+  width: calc(60px / 3);
+  height: calc(60px / 3);
+}
+.loader-container .planets .orbits .orbit .mars {
+  width: calc(50px / 3);
+  height: calc(50px / 3);
+}

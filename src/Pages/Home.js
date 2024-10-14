@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "../Components/Card";
 
@@ -17,6 +17,7 @@ import {
 import { works } from "../Constants/works";
 import { skills } from "../Constants/skills";
 import { experience } from "../Constants/experience";
+import Loader from "../Components/Loader/Loader";
 
 export default function Home() {
   // Vars
@@ -416,6 +417,80 @@ export default function Home() {
     initIdentification();
   };
 
+  const absorption = () => {
+    // Add random velocity
+    for (let i = 0; i < pointsA.length; i++) {
+      random = Math.ceil(Math.random() * 3);
+      randomArr.push(random);
+    }
+
+    // Change move point's method
+    absorptionToBlackHole = true;
+
+    if (absorptionToBlackHole) {
+      // Hidden the paragraph in the identification
+      document.querySelector(".identification p").style.display = "none";
+
+      // Move the identification mobile outside the screen
+      document.querySelector(".identification-mobile").style.transform =
+        "translate(-100%, -50%)";
+
+      // Hidden the orbits
+      Array.from(document.querySelectorAll(".orbits .orbit")).forEach((e) => {
+        e.style.border = "none";
+      });
+
+      // Move the planets
+      document.querySelector(".planets").style.cssText = `top: ${
+        blackholeBounding.top + blackholeBounding.height / 2
+      }px; right: ${
+        window.innerWidth -
+        (blackholeBounding.left + blackholeBounding.width / 2)
+      }px; transform: translate(50%, -50%) scale(0);`;
+
+      // Disable the "scroll down" button
+      document.querySelector(".scroll-down").style.pointerEvents = "none";
+
+      // Move the "scroll down" button
+      document.querySelector(".scroll-down").style.cssText = `top: ${
+        blackholeBounding.top + blackholeBounding.height / 2
+      }px; left: ${
+        blackholeBounding.left + blackholeBounding.width / 2
+      }px; transform: translateX(-50%) rotate(45deg) scale(0);`;
+
+      setTimeout(() => {
+        // Hidden the black hole
+        if (window.innerWidth > 767)
+          document.querySelector(".blackhole").style.cssText =
+            "transform: scale(0)";
+        else
+          document.querySelector(".blackhole").style.cssText =
+            "transform: translate(50%, 0) scale(0)";
+
+        setTimeout(() => {
+          // Display portfolio section
+          document.querySelector(".portfolio-section").style.cssText =
+            "animation: moveToTop 3s cubic-bezier(0.45, 0.37, 0.42, 0.84) forwards;";
+
+          setTimeout(() => {
+            // Hidden the canvas affter move its points
+            document.querySelector(".identification canvas").style.display =
+              "none";
+
+            // stop creating dynamic gradient
+            display = true;
+
+            setTimeout(() => {
+              // Make the overflowY auto
+              document.querySelector(".portfolio-section").style.overflowY =
+                "auto";
+            }, 2000);
+          }, 1000);
+        }, 1000);
+      }, 2000);
+    }
+  };
+
   window.onload = (e) => {
     // get bounding client rect of black hole
     blackholeBounding = {
@@ -501,79 +576,9 @@ export default function Home() {
     }
   };
 
-  const absorption = () => {
-    // Add random velocity
-    for (let i = 0; i < pointsA.length; i++) {
-      random = Math.ceil(Math.random() * 3);
-      randomArr.push(random);
-    }
+  const [loading, setLoading] = useState(true);
 
-    // Change move point's method
-    absorptionToBlackHole = true;
-
-    if (absorptionToBlackHole) {
-      // Hidden the paragraph in the identification
-      document.querySelector(".identification p").style.display = "none";
-
-      // Move the identification mobile outside the screen
-      document.querySelector(".identification-mobile").style.transform =
-        "translate(-100%, -50%)";
-
-      // Hidden the orbits
-      Array.from(document.querySelectorAll(".orbits .orbit")).forEach((e) => {
-        e.style.border = "none";
-      });
-
-      // Move the planets
-      document.querySelector(".planets").style.cssText = `top: ${
-        blackholeBounding.top + blackholeBounding.height / 2
-      }px; right: ${
-        window.innerWidth -
-        (blackholeBounding.left + blackholeBounding.width / 2)
-      }px; transform: translate(50%, -50%) scale(0);`;
-
-      // Disable the "scroll down" button
-      document.querySelector(".scroll-down").style.pointerEvents = "none";
-
-      // Move the "scroll down" button
-      document.querySelector(".scroll-down").style.cssText = `top: ${
-        blackholeBounding.top + blackholeBounding.height / 2
-      }px; left: ${
-        blackholeBounding.left + blackholeBounding.width / 2
-      }px; transform: translateX(-50%) rotate(45deg) scale(0);`;
-
-      setTimeout(() => {
-        // Hidden the black hole
-        if (window.innerWidth > 767)
-          document.querySelector(".blackhole").style.cssText =
-            "transform: scale(0)";
-        else
-          document.querySelector(".blackhole").style.cssText =
-            "transform: translate(50%, 0) scale(0)";
-
-        setTimeout(() => {
-          // Display portfolio section
-          document.querySelector(".portfolio-section").style.cssText =
-            "animation: moveToTop 3s cubic-bezier(0.45, 0.37, 0.42, 0.84) forwards;";
-
-          setTimeout(() => {
-            // Hidden the canvas affter move its points
-            document.querySelector(".identification canvas").style.display =
-              "none";
-
-            // stop creating dynamic gradient
-            display = true;
-
-            setTimeout(() => {
-              // Make the overflowY auto
-              document.querySelector(".portfolio-section").style.overflowY =
-                "auto";
-            }, 2000);
-          }, 1000);
-        }, 1000);
-      }, 2000);
-    }
-  };
+  useEffect(() => (window.onload = setLoading(false)), []);
 
   useEffect(() => {
     document.querySelector(".works-cards").onmousemove = (e) => {
@@ -594,6 +599,7 @@ export default function Home() {
   // Return
   return (
     <>
+      {loading && <Loader />}
       {/* Start Header */}
       <header>
         {/* Start Planets */}
